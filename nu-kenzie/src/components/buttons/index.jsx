@@ -4,18 +4,24 @@ export function ButtonPrimary (props) {
     return (
         <button className="btn" onClick={props.onClick}>{props.text}</button>
         )
-    }
+}
     
 export function ButtonLogIn (props) {
-        return (
-            <button className="btn" onClick={props.onClick}>{props.text}</button>
-        )
+    return (
+        <button className="btn" onClick={props.onClick}>{props.text}</button>
+    )
+}
+
+export function ButtonFilter (props) {
+    return (
+        <button className={props.class} value={props.value} onClick={props.onClick}>{props.text}</button>
+    )
 }
 
 export function ButtonLogOut (props) {
-        return (
-            <button className="btn btn-inactive" onClick={props.onClick}>{props.text}</button>
-        )
+    return (
+        <button className="btn btn-inactive" onClick={props.onClick}>{props.text}</button>
+    )
 }
 
 export function ButtonInactive (props) {

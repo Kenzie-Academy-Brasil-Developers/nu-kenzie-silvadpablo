@@ -28,3 +28,23 @@ h1 {
 .index-img {
     margin-left: 50px;
 }
+
+@media (max-width: 950px) {
+    .index-img {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 625px) {
+    .index-page {
+        flex-direction: column;
+    }
+
+    .pageInfo {
+        width: 80%;
+    }
+
+    .index-img {
+        display: none;
+    }
+}

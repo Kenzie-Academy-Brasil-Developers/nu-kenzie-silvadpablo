@@ -16,7 +16,7 @@ export function AmountInput (props) {
         <div className="flex flex-col items-start input-desc-div">
             <label className="desc-label" htmlFor={props.id}>{props.innerText}</label>
             <input required className="desc-input amount-input" type="text" name={props.id} id={props.id} placeholder={props.holder}
-            onKeyPress={props.onKeyPress}/>
+            onChange={props.onChange}/>
             <div className="currency"></div>
         </div>
     )
