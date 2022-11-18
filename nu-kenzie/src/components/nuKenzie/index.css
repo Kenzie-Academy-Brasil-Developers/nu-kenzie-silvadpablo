@@ -1,0 +1,9 @@
+.logo-text {
+    color: var(--grey-1);
+    font-size: var(--title-2);
+    font-weight: var(--title-weight);
+}
+
+span {
+    color: var(--primary);
+}

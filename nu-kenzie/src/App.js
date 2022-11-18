@@ -1,25 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { IndexPage } from "./pages/indexPage"
+import { useState } from "react";
+import { HomePage } from './pages/home';
+
 
 function App() {
+  const [isIndexPage, setIsIndexPage] = useState(true)
+  function login() {
+    setIsIndexPage(!isIndexPage)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {
+        isIndexPage ?
+        <IndexPage onClick={login}/>
+        : <HomePage onClick={login}/>
+      }
     </div>
-  );
+  )
 }
 
 export default App;

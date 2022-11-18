@@ -1,0 +1,52 @@
+.input-desc-div {
+    gap: 12px;
+    width: 100%;
+}
+
+.desc-input {
+    width: 95%;
+    padding: 14px 0;
+    outline: none;
+    border: none;
+    color: var(--grey-3);
+    background-color: var(--grey-1);
+    border-radius: var(--radius);
+    margin-bottom: 5px;
+    font-size: var(--headline);
+    padding-left: 16px;
+}
+
+.desc-input::placeholder {
+    color: var(--grey-3);
+    padding-left: 16px;
+    font-size: var(--headline);
+}
+
+
+.desc-input:focus {
+    border: 2px solid var(--grey-4);
+    background-color: white;
+    color: var(--grey-4);
+}
+
+.amount-input {
+    margin-bottom: 0px;
+}
+
+.currency {
+    position: relative;
+    display: inline;
+    font-weight: var(--title-weight);
+}
+
+.currency:before {
+    content: 'R$';
+    position: absolute;
+    top: -45px;
+    right: -9.5vw;
+    z-index: 1;
+}
+
+option {
+    background-color: var(--grey-1);
+}
