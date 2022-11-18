@@ -50,3 +50,21 @@
 option {
     background-color: var(--grey-1);
 }
+
+@media (max-width: 1050px) {
+    .currency:before {
+        right: -18vw;
+    }
+}
+
+@media (max-width: 750px) {
+    .currency:before {
+        right: -60vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .currency:before {
+        right: -55vw;
+    }
+}

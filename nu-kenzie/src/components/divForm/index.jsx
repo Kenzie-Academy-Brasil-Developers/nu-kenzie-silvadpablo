@@ -4,7 +4,7 @@ import { AmountInput, TextInput, TypeSelect } from "../inputs"
 import "./index.css"
 
 
-export function InputForm ({setCards, setTotal}) {
+export function InputForm ({setCards, setTotal, setCardId, cardId}) {
     const [description, setDescription] = useState("")
     const [amount, setAmount] = useState("0")
     const [type, setType] = useState("entrada")
@@ -13,14 +13,16 @@ export function InputForm ({setCards, setTotal}) {
         setDescription(event.target.value)
     }
     function setInputAmount (event) {
-        const format = /[\d.]/
-        if (format.test(event.key) === false && event.keyCode !== 8 && event.target.value !== undefined) {
-            event.preventDefault()
-        }
+        // const format = /[\d.]/
+        // if (format.test(event.key) === false && event.keyCode !== 8 && event.target.value !== undefined) {
+        //     event.preventDefault()
+        // }
         setAmount(event.target.value)
+
     }
     function setInputType (event) {
         setType(event.target.value)
+
     }
 
     function handleSubmit (event) {
@@ -29,9 +31,10 @@ export function InputForm ({setCards, setTotal}) {
             description,
             amount,
             type,
+            cardId
         }
-        console.log(card)
         setCards((currentCards) => [...currentCards, card])
+        setCardId((currentId) => currentId + 1)
         
         if (type === "entrada") {
             setTotal((currentTotal) => currentTotal + Number(amount))
@@ -51,7 +54,7 @@ export function InputForm ({setCards, setTotal}) {
             <div className="flex purchase-input">
                 <div className="div-amount">
                     <AmountInput id="amount" innerText="Valor" holder="00,00"
-                    onKeyPress={setInputAmount}/>
+                    onChange={setInputAmount}/>
                 </div>
                 <div className="div-select">
                     <TypeSelect onChange={setInputType}/>

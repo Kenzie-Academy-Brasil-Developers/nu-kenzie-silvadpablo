@@ -98,3 +98,46 @@
     font-weight: var(--title-weight);
     text-align: left;
 }
+
+@media (max-width: 1050px) {
+    .purchase-input {
+        flex-direction: column;
+    }
+
+    .div-amount {
+        width: 100%;
+    }
+
+    .div-select {
+        width: 100%;
+    }
+
+    .info-header {
+        flex-direction: column;
+    }
+
+    .summary {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 750px) {
+    .home-main {
+        flex-direction: column;
+    }
+
+    .input-section {
+        width: 100%;
+    }
+
+    .output-section{
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .btn {
+        font-size: var(--title-4);
+    }
+}

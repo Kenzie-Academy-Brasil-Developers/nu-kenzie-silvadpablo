@@ -1,4 +1,4 @@
-import { ButtonInactive, ButtonPrimary } from "../../components/buttons";
+import { ButtonFilter, ButtonInactive, ButtonPrimary } from "../../components/buttons";
 import { Header } from "../../components/header";
 import { CardDiv, NoCardDiv } from "../../components/cardDivs";
 
@@ -9,6 +9,17 @@ import { useState } from "react";
 export function HomePage (props) {
     const [cards, setCards] = useState([])
     const [total, setTotal] = useState(0)
+    const [filter, setFilter] = useState("todos")
+    const [cardId, setCardId] = useState(0)
+
+    let arrayCards = []
+    if (filter === "todos") {
+        arrayCards = [...cards]
+    } else if (filter === "entrada") {
+        arrayCards = cards.filter((card) => card.type === filter)
+    } else if(filter === "saida") {
+        arrayCards = cards.filter((card) => card.type === filter)
+    }
 
     function removeCard (event) {
         const thisTarget = event.target.parentElement.parentElement.parentElement
@@ -20,26 +31,15 @@ export function HomePage (props) {
         } else {
             setTotal(total + Number(thisAmount))
         }
+        // let remainingCards = cards.filter((card) => card.cardId !== thisTarget.id)
+        // setCards(remainingCards)
+        // console.log(cards)
         thisTarget.remove()
-
-        // setCards(
-        //     (currentCards) => {
-        //         currentCards.filter((card) => card.id)
-        //     }
-        // )
     }
 
     function filterCards (event) {
-        
+        setFilter(event.target.value)
     }
-
-    // function updateTotal () {        
-    //     const profit = cards.filter((card) => card.type === "saida")
-    //     const loss = cards.filter((card) => card.type === "entrada")
-    //     console.log(profit)
-    //     console.log(loss)
-    //     console.log(cards)
-    // }
 
     return (
         <div className="flex flex-col">
@@ -48,7 +48,7 @@ export function HomePage (props) {
             </header>
             <main className="flex home-main">
                 <section className="flex flex-col input-section">
-                    <InputForm setCards={setCards} setTotal={setTotal}/>
+                    <InputForm setCards={setCards} setTotal={setTotal} setCardId={setCardId} cardId={cardId}/>
                     {cards.length !== 0 ? (
                         <div className="flex flex-col inputs-div">
                             <div className="flex justify-between">
@@ -65,13 +65,13 @@ export function HomePage (props) {
                     <div className="flex items-center justify-between info-header">
                         <h2 className="summary">Resumo financeiro</h2>
                         <div className="flex info-buttons">
-                            <ButtonPrimary text="Todos" onClick={filterCards}/>
-                            <ButtonInactive text="Entradas" onClick={filterCards}/>
-                            <ButtonInactive text="Saídas" onClick={filterCards}/>
+                            <ButtonFilter class="btn" text="Todos" value="todos" onClick={filterCards}/>
+                            <ButtonFilter class="btn btn-inactive" text="Entradas" value="entrada" onClick={filterCards}/>
+                            <ButtonFilter class="btn btn-inactive" text="Saídas" value="saida" onClick={filterCards}/>
                         </div>
                     </div>
                     <div className="flex flex-col items-start info-main">
-                        {cards.length === 0 ? (
+                        {arrayCards.length === 0 ? (
                                 <div className="flex flex-col info-none">
                                     <p className="no-info">Você ainda não possui nenhum lançamento</p>
                                     <NoCardDiv/>
@@ -81,8 +81,8 @@ export function HomePage (props) {
                             ) : (
                                 <div className="flex flex-col card-div">
                                     {
-                                        cards.map((card, index) =>
-                                            <CardDiv key={index} id={index} description={card.description} type={card.type} price={card.amount} onClick={removeCard}/>,
+                                        arrayCards.map((card, index) =>
+                                            <CardDiv key={index} id={index} description={card.description} type={card.type} price={card.amount} onClick={removeCard}/>
                                         )
                                     }
                                 </div>
