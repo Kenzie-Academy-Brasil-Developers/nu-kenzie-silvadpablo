@@ -1,0 +1,9 @@
+.header {
+    box-shadow: var(--card-shadow);
+    padding: 22px 15%;
+    margin-bottom: 20px;
+}
+
+.header p {
+    color: var(--grey-4);
+}

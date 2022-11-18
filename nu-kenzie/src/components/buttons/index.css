@@ -1,0 +1,30 @@
+.btn {
+    background-color: var(--primary);
+    border: none;
+    outline: none;
+    border-radius: var(--radius);
+    color: var(--grey-1);
+    padding: var(--btn-primary-padding);
+    font-family: var(--family);
+    font-size: var(--headline);
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: var(--primary-2);
+}
+
+.btn-inactive {
+    background-color: var(--grey-2);
+    color: var(--grey-3);
+}
+
+.btn-inactive:hover {
+    background-color: var(--grey-3);
+    color: var(--grey-1);
+}
+
+.btn-inactive:active {
+    background-color: var(--primary);
+}

@@ -1,0 +1,30 @@
+.index-page {
+    background-color: var(--grey-4);
+    height: 100vh;
+}
+
+.pageInfo {
+    width: 30%;
+    gap: 30px;
+}
+
+h1 {
+    text-align: left;
+    font-size: 38px;
+    color: var(--grey-1);
+    font-weight: var(--title-weight);
+}
+
+.text {
+    font-size: var(--body);
+    color: var(--grey-1);
+    font-weight: var(--weight-regular);
+}
+
+.button-div {
+    width: 70%;
+}
+
+.index-img {
+    margin-left: 50px;
+}
